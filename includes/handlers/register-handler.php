@@ -19,7 +19,7 @@ function sanitizeFormPassword($inputText) {
 }
 
 if(isset($_POST['loginButton'])) {
-	
+			
 }
 
 if(isset($_POST['registerButton'])) {
@@ -32,6 +32,7 @@ if(isset($_POST['registerButton'])) {
 	$password = sanitizeFormPassword($_POST['password']);
 	$password2 = sanitizeFormPassword($_POST['password2']);
 
+	$account->register($username, $firstName, $lastName, $email, $email2, $password, $password2);
 }
 
 ?>
