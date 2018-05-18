@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+
+<?php 
+	include("includes/handlers/register-handler.php");
+ ?>
 <html>
 <head>
 	<title>Welcome to Your music</title>
