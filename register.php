@@ -4,10 +4,17 @@
 
 	include("includes/classes/Account.php");
 	include("includes/classes/Constants.php");
+
 	$account = new Account();
 
 	include("includes/handlers/register-handler.php");
 	include("includes/handlers/login-handler.php");
+
+	function getInputValue($name) {
+		if(isset($_POST[$name])) {
+			echo$_POST[$name];
+		}
+	}
  ?>
 <html>
 <head>
@@ -35,31 +42,31 @@
 			<p>
 				<?php echo $account->getError(Constants::$usernameCharacters); ?>
 				<label for="username">Username</label>
-				<input id="username" type="text" name="username" placeholder="Your username" required>	
+				<input id="username" type="text" name="username" value="<?php getInputValue('username'); ?>" placeholder="Your username"  required>	
 			</p>
 
 			<p>
 				<?php echo $account->getError(Constants::$firstNameCharacters); ?>
 				<label for="firstName">First name</label>
-				<input id="firstName" type="text" name="firstName" placeholder="Your first name" required>	
+				<input id="firstName" type="text" name="firstName" value="<?php getInputValue('firstName'); ?>" placeholder="Your first name" required>	
 			</p>
 
 			<p>
 				<?php echo $account->getError(Constants::$lastNameCharacters); ?>
 				<label for="lastName">Last name</label>
-				<input id="lastName" type="text" name="lastName" placeholder="Your last name" required>	
+				<input id="lastName" type="text" name="lastName" value="<?php getInputValue('lastName'); ?>" placeholder="Your last name" required>	
 			</p>
 
 			<p>
 				<?php echo $account->getError(Constants::$emailsDoNotMatch); ?>
 				<?php echo $account->getError(Constants::$emailNotValid); ?>
 				<label for="email">Email</label>
-				<input id="email" type="text" name="email" placeholder="Your email" required>	
+				<input id="email" type="text" name="email" value="<?php getInputValue('email'); ?>" placeholder="Your email" required>	
 			</p>
 
 			<p>
 				<label for="email2">Confirm email</label>
-				<input id="email2" type="email" name="email2" placeholder="Confirm email" required>	
+				<input id="email2" type="email" name="email2" value="<?php getInputValue('email2'); ?>" placeholder="Confirm email" required>	
 			</p>
 
 
