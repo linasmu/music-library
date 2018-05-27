@@ -26,12 +26,13 @@
 		<form id="loginForm" action="register.php" method="POST">
 			<h2>Login to your music</h2>
 			<p>
+				<?php echo $account->getError(Constants::$loginFailed); ?>
 				<label for="loginUsername">Username</label>
 				<input id="loginUsername" type="text" name="loginUsername" placeholder="Your username" required>	
 			</p>
 			<p>
 				<label for="loginPassword">Password</label>
-			<input id="loginPassword" type="password" name="loginPassword" placeholder="Password" required>
+				<input id="loginPassword" type="password" name="loginPassword" placeholder="Password" required>
 			</p>
 
 			<button type="submit" name="loginButton">Log in</button>
@@ -41,6 +42,7 @@
 			<h2>Create free account</h2>
 			<p>
 				<?php echo $account->getError(Constants::$usernameCharacters); ?>
+				<?php echo $account->getError(Constants::$usernameTaken); ?>
 				<label for="username">Username</label>
 				<input id="username" type="text" name="username" value="<?php getInputValue('username'); ?>" placeholder="Your username"  required>	
 			</p>
@@ -60,6 +62,7 @@
 			<p>
 				<?php echo $account->getError(Constants::$emailsDoNotMatch); ?>
 				<?php echo $account->getError(Constants::$emailNotValid); ?>
+				<?php echo $account->getError(Constants::$emailTaken); ?>
 				<label for="email">Email</label>
 				<input id="email" type="text" name="email" value="<?php getInputValue('email'); ?>" placeholder="Your email" required>	
 			</p>
@@ -79,8 +82,8 @@
 			</p>
 
 			<p>
-				<label for="password2">Password</label>
-				<input id="password2" type="password" name="password2" placeholder="Confitm password" required>
+				<label for="password2">Confirm password</label>
+				<input id="password2" type="password" name="password2" placeholder="Confirm password" required>
 			</p>
 
 			<button type="submit" name="registerButton">Sign up</button>
