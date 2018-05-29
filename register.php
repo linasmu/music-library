@@ -19,8 +19,14 @@
 <html>
 <head>
 	<title>Welcome to Your music</title>
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+	<script src="js/register.js"></script>
 </head>
 <body>
+<div id="background">
+
+	<div id="loginContainer">
 
 	<div id="inputContainer">
 		<form id="loginForm" action="register.php" method="POST">
@@ -36,6 +42,10 @@
 			</p>
 
 			<button type="submit" name="loginButton">Log in</button>
+
+			<div class="hasAccountText">
+				<span id="hideLogin">Don't have an account yet? Signup here.</span>
+			</div>
 		</form>
 
 		<form id="registerForm" action="register.php" method="POST">
@@ -87,7 +97,13 @@
 			</p>
 
 			<button type="submit" name="registerButton">Sign up</button>
+
+			<div class="hasAccountText">
+				<span id="hideRegister">Alresdy have an acount? Log in here.</span>
+			</div>
 		</form>
 	</div>
+	</div>
+</div>
 </body>
 </html>
