@@ -78,6 +78,7 @@ html, body {
     color: #a0a0a0;
     font-size: 13px;
     margin-top: 15px;
+    display: block;
 }
 
 #inputContainer button {
@@ -135,6 +136,12 @@ html, body {
     font-size: 18px;
     list-style: none;
     padding: 10px;
+}
+
+#inputContainer .errorMessage {
+    color: #07d159;
+    font-size: 12px;
+    display: block;
 }
 
 
