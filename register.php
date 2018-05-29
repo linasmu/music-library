@@ -124,6 +124,16 @@ if(isset($_POST['registerButton'])) {
 			</div>
 		</form>
 	</div>
+
+	<div id="loginText">
+		<h1>Get great music, right now</h1>
+		<h2>Listen to tons of music for free</h2>
+		<ul>
+			<li>Know what you want to listen to? Just search and hit play.</li>
+			<li>Check out the latest charts, brand new releases and great playlists for right now.</li>
+			<li>Enjoy new music every Monday with your own personal playlist. Or sit back and enjoy Radio.</li>
+		</ul>
+	</div>	
 	</div>
 </div>
 </body>
