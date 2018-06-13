@@ -26,7 +26,19 @@ if(isset($_SESSION['userLoggedIn'])) {
     <div id="nowPlayingBarContainer">
         <div id=nowPlayingBar>
             <div id="nowPlayingLeft">
-
+                <div class="content">
+                    <span class="albumLink">
+                        <img src="https://androidapkcloud.com/wp-content/uploads/2017/09/Square-PhotoWithout.png" class="albumImage">
+                    </span>
+                    <div class="trackInfo">
+                        <span class="trackName">
+                            <span>Another one bite to dust</span>
+                        </span>
+                        <span class="artistName">
+                            <span>Queen</span>
+                        </span>
+                    </div>
+                </div>
             </div>
 
             <div id="nowPlayingCenter">
