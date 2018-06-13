@@ -180,6 +180,11 @@ html, body {
     min-width: 100px;
 }
 
+#nowPlayingRight {
+    position: relative;
+    margin-top: 16px;
+}
+
 #nowPlayingCenter {
     width: 40%;
     max-width: 700px;
@@ -208,7 +213,7 @@ html, body {
     cursor: pointer;
 }
 
-.fa-random, .fa-step-backward, .fa-step-forward, .fa-redo-alt {
+.fa-random, .fa-step-backward, .fa-step-forward, .fa-redo-alt, .fa-volume-up {
     color: #a0a0a0;
     font-size: 20px;
 }
@@ -280,5 +285,17 @@ html, body {
     font-size: 12px;
     color: #a0a0a0;
 }
+
+.volumeBar {
+    width: 180px;
+    position: absolute;
+    right: 0;
+}
+
+.volumeBar .progressBar {
+    width: 125px;
+}
+
+
 
 
