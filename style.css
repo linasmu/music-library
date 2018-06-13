@@ -183,4 +183,37 @@ html, body {
     align-items: center;
 }
 
+#nowPlayingBar .content {
+    width: 100%;
+}
+
+.playerControls .buttons {
+    margin: 0 auto;
+    display: table;
+}
+
+.controlButton {
+    background-color: transparent;
+    border: none;
+    vertical-align: middle;
+}
+
+.controlButton:hover {
+    cursor: pointer;
+}
+
+.fa-random, .fa-step-backward, .fa-step-forward, .fa-redo-alt {
+    color: cornsilk;
+    font-size: 20px;
+}
+
+.fa-play-circle, .fa-pause-circle {
+    font-size: 32px;
+    color: cornsilk;
+}
+
+.pause {
+    display: none;
+}
+
 
