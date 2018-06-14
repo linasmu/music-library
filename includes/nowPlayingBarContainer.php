@@ -1,3 +1,53 @@
+<?php
+$songQuery = mysqli_query($con, "SELECT * FROM songs ORDER BY RAND() LIMIT 10");
+
+$resultArray = array();
+
+while($row = mysqli_fetch_array($songQuery)) {
+   array_push($resultArray, $row['id']); 
+}
+
+$jsonArray = json_encode($resultArray);
+
+?>
+
+<script>
+    
+$(document).ready(function() {
+    currentPlaylist = <?php echo $jsonArray; ?>;
+    audioElement = new Audio();
+    setTrack(currentPlaylist[0], currentPlaylist, false);
+});
+
+function setTrack(trackId, newPlaylist, play) {
+    $.post("includes/handlers/ajax/getSongJson.php", {songId: trackId}, function(data){
+
+        var track = JSON.parse(data);
+
+        console.log(track);
+        audioElement.setTrack(track.link);
+        audioElement.play();
+    });
+
+    if(play == true) {
+        audioElement.play();
+    }
+}
+
+function playSong() {
+    $(".controlButton.play").hide();
+    $(".controlButton.pause").show();
+    audioElement.play();
+}
+
+function pauseSong() {
+    $(".controlButton.play").show();
+    $(".controlButton.pause").hide();
+    audioElement.pause();
+}
+
+</script>
+
 <div id="nowPlayingBarContainer">
     <div id=nowPlayingBar>
         <div id="nowPlayingLeft">
@@ -25,10 +75,10 @@
                     <button class="controlButton Previous" title="Previous">
                     <i class="fas fa-step-backward" alt="Previous"></i>
                     </button>
-                    <button class="controlButton play" title="Play">
+                    <button class="controlButton play" title="Play" onclick="playSong()">
                     <i class="fas fa-play-circle" alt="Play"></i>
                     </button>
-                    <button class="controlButton pause" title="Pause">
+                    <button class="controlButton pause" title="Pause" onclick="pauseSong()">
                     <i class="fas fa-pause-circle" alt="Pause"></i>
                     </button>
                     <button class="controlButton next" title="Next">
