@@ -5,7 +5,7 @@
         private $title;
         private $artistId;
         private $genre;
-        private $label;
+        private $lable;
 
         public function __construct($con, $id) {
             $this->con = $con;
@@ -17,7 +17,7 @@
             $this->title = $album['title'];
             $this->artistId = $album['artist'];
             $this->genre = $album['genre'];
-            $this->label = $album['label'];
+            $this->lable = $album['label'];
         }
 
         public function getTitle() {
@@ -34,6 +34,11 @@
 
         public function getLable() {
             return $this->lable;
+        }
+
+        public function getNumberOfSongs() {
+            $query = mysqli_query($this->con, "SELECT id FROM songs WHERE album='$this->id'");
+            return mysqli_num_rows($query);
         }
     }
 
