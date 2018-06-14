@@ -1,4 +1,8 @@
 /* REGISTER PAGE */
+* {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #fff;
+}
 
 html, body {
     padding: 0;
@@ -6,10 +10,12 @@ html, body {
     height: 100%;
 }
 
-* {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #fff;
+body {
+    background-color: #181818;
+    font-size: 14px;
+    min-width: 720px;
 }
+
 
 #background {
     background-color: #000 !important;
@@ -356,6 +362,12 @@ html, body {
     color: #a0a0a0;
 }
 
+.mainViewContainer {
+    margin-left: 220px;
+    padding-bottom: 90px;
+    width: calc(100% - 220px);
+}
 
-
-
+.mainContent {
+    padding: 0 20px;
+}
