@@ -105,6 +105,18 @@ function setRepeat() {
     $(".fa-redo-alt").css("color", imageColor);
 }
 
+function setMute() {
+    audioElement.audio.muted = !audioElement.audio.muted;
+
+    if(!audioElement.audio.muted) {
+        $(".fa-volume-up").show();
+        $(".fa-volume-off").hide();
+    } else {
+        $(".fa-volume-up").hide();
+        $(".fa-volume-off").show();
+    }
+}
+
 function setTrack(trackId, newPlaylist, play) {
     currentIndex = currentPlaylist.indexOf(trackId);
     pauseSong();
@@ -207,8 +219,9 @@ function pauseSong() {
 
         <div id="nowPlayingRight">
             <div class="volumeBar">
-                <button class="controlButton volume" title="Volume">
+                <button class="controlButton volume" title="Volume" onclick="setMute()">
                 <i class="fas fa-volume-up" alt="Volume"></i>
+                <i class="fas fa-volume-off"></i>
                 </button>
                 <div class="progressBar">
                     <div class="progressBarBg">

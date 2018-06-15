@@ -220,9 +220,14 @@ html, body {
     cursor: pointer;
 }
 
-.fa-random, .fa-step-backward, .fa-step-forward, .fa-redo-alt, .fa-volume-up {
+.fa-random, .fa-step-backward, .fa-step-forward, .fa-redo-alt, .fa-volume-up, .fa-volume-off {
     color: #a0a0a0;
     font-size: 20px;
+}
+
+.fa-volume-off {
+    display: none;
+    margin-right: 13px;
 }
 
 .fa-play-circle, .fa-pause-circle {
