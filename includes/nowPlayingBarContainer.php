@@ -19,6 +19,11 @@ $(document).ready(function() {
     setTrack(currentPlaylist[0], currentPlaylist, false);
     updateVolumeProgressBar(audioElement.audio);
 
+    // Prevent highlighting 
+    $("#nowPlayingBarContainer").on("mousedown touchstart mousemove touchmove" , function(e) {
+        e.preventDefault();
+    });
+
     $(".playbackBar .progressBar").mousedown(function(){
         mouseDown = true;
     });
@@ -68,11 +73,31 @@ function timeFromOffset(mouse, progressBar) {
     audioElement.setTime(seconds);
 }
 
+function nextSong() {
+    if(repeat == true) {
+        audioElement.setTime(0);
+        playSong();
+        return;
+    }
+
+    if(currentIndex == currentPlaylist.length - 1) {
+        currentIndex = 0;
+    } else {
+        currentIndex++;
+    }
+
+    var trackToPlay = currentPlaylist[currentIndex];
+    setTrack(trackToPlay, currentPlaylist, true);
+}
+
 function setTrack(trackId, newPlaylist, play) {
+    currentIndex = currentPlaylist.indexOf(trackId);
+    pauseSong();
+
     $.post("includes/handlers/ajax/getSongJson.php", {songId: trackId}, function(data){
 
         var track = JSON.parse(data);
-
+        
         $(".trackName span").text(track.title);
 
         $.post("includes/handlers/ajax/getArtistJson.php", {artistId: track.artist}, function(data){
@@ -145,7 +170,7 @@ function pauseSong() {
                     <button class="controlButton pause" title="Pause" onclick="pauseSong()">
                     <i class="fas fa-pause-circle" alt="Pause"></i>
                     </button>
-                    <button class="controlButton next" title="Next">
+                    <button class="controlButton next" title="Next" onclick="nextSong()">
                     <i class="fas fa-step-forward" alt="Next"></i>
                     </button>
                     <button class="controlButton repeat" title="Repeat">
