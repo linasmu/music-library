@@ -90,6 +90,12 @@ function nextSong() {
     setTrack(trackToPlay, currentPlaylist, true);
 }
 
+function setRepeat() {
+    repeat = !repeat;
+    var imageColor = repeat ? "#f78181" : "#a0a0a0";
+    $(".fa-redo-alt").css("color", imageColor);
+}
+
 function setTrack(trackId, newPlaylist, play) {
     currentIndex = currentPlaylist.indexOf(trackId);
     pauseSong();
@@ -173,7 +179,7 @@ function pauseSong() {
                     <button class="controlButton next" title="Next" onclick="nextSong()">
                     <i class="fas fa-step-forward" alt="Next"></i>
                     </button>
-                    <button class="controlButton repeat" title="Repeat">
+                    <button class="controlButton repeat" title="Repeat" onclick="setRepeat()">
                     <i class="fas fa-redo-alt" alt="Repeat"></i>
                     </button>
                 </div>
