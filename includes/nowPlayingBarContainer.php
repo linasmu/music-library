@@ -14,9 +14,9 @@ $jsonArray = json_encode($resultArray);
 <script>
     
 $(document).ready(function() {
-    currentPlaylist = <?php echo $jsonArray; ?>;
+    var newPlaylist = <?php echo $jsonArray; ?>;
     audioElement = new Audio();
-    setTrack(currentPlaylist[0], currentPlaylist, false);
+    setTrack(newPlaylist[0], newPlaylist, false);
     updateVolumeProgressBar(audioElement.audio);
 
     // Prevent highlighting 
@@ -95,7 +95,7 @@ function nextSong() {
         currentIndex++;
     }
 
-    var trackToPlay = currentPlaylist[currentIndex];
+    var trackToPlay = shuffle ? shufflePlaylist[currentIndex] : currentPlaylist[currentIndex];
     setTrack(trackToPlay, currentPlaylist, true);
 }
 
@@ -117,8 +117,44 @@ function setMute() {
     }
 }
 
+function setShuffle() {
+    shuffle = !shuffle;
+    var simageColor = shuffle ? "#f78181" : "#a0a0a0";
+    $(".fa-random").css("color", simageColor);
+
+    if(shuffle == true) {
+        shuffleArray(shufflePlaylist);
+        currentIndex = shufflePlaylist.indexOf(audioElement.currentlyPlaying.id);
+    
+    } else {
+        currentIndex = currentPlaylist.indexOf(audioElement.currentlyPlaying.id);
+    }
+}
+
+// RANDOMIZE ARRAY
+function shuffleArray(a) {
+    var j, x, i;
+    for(i = a.length; i; i--) {
+        j = Math.floor(Math.random() * i);
+        x = a[i - 1];
+        a[i - 1] = a[j];
+        a[j] = x;
+    }
+}
+
 function setTrack(trackId, newPlaylist, play) {
-    currentIndex = currentPlaylist.indexOf(trackId);
+
+    if(newPlaylist != currentPlaylist) {
+        currentPlaylist = newPlaylist;
+        shufflePlaylist = currentPlaylist.slice();
+        shuffleArray(shufflePlaylist);
+    }
+
+    if(shuffle == true) {
+        currentIndex = shufflePlaylist.indexOf(trackId);
+    } else {
+        currentIndex = currentPlaylist.indexOf(trackId);
+    }
     pauseSong();
 
     $.post("includes/handlers/ajax/getSongJson.php", {songId: trackId}, function(data){
@@ -185,7 +221,7 @@ function pauseSong() {
         <div id="nowPlayingCenter">
             <div class="content playerControls">
                 <div class="buttons">
-                    <button class="controlButton shuffle" title="Shuffle">
+                    <button class="controlButton shuffle" title="Shuffle" onclick="setShuffle()">
                     <i class="fas fa-random" alt="Shuffle"></i>
                     </button>
                     <button class="controlButton Previous" title="Previous" onclick="prevSong()">
