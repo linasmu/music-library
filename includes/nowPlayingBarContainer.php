@@ -24,7 +24,18 @@ function setTrack(trackId, newPlaylist, play) {
 
         var track = JSON.parse(data);
 
-        console.log(track);
+        $(".trackName span").text(track.title);
+
+        $.post("includes/handlers/ajax/getArtistJson.php", {artistId: track.artist}, function(data){
+            var artist = JSON.parse(data);
+            $(".artistName span").text(artist.name);
+        });
+
+        $.post("includes/handlers/ajax/getAlbumJson.php", {albumId: track.album}, function(data){
+            var album = JSON.parse(data);
+            $(".albumLink img").attr("src", album.label);
+        });
+
         audioElement.setTrack(track.link);
         audioElement.play();
     });
@@ -53,14 +64,14 @@ function pauseSong() {
         <div id="nowPlayingLeft">
             <div class="content">
                 <span class="albumLink">
-                    <img src="https://androidapkcloud.com/wp-content/uploads/2017/09/Square-PhotoWithout.png" class="albumImage">
+                    <img src="" class="albumImage">
                 </span>
                 <div class="trackInfo">
                     <span class="trackName">
-                        <span>Another one bite to dust</span>
+                        <span></span>
                     </span>
                     <span class="artistName">
-                        <span>Queen</span>
+                        <span></span>
                     </span>
                 </div>
             </div>
