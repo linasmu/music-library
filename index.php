@@ -1,4 +1,6 @@
-<?php include("includes/header.php"); ?>
+<?php 
+include("includes/includedFiles.php");
+?>
 
 <h1 class="pageHeading">Choose music you like</h1>
 
@@ -20,5 +22,5 @@
     ?>
 </div>
 
-<?php include("includes/footer.php"); ?>
+
  
