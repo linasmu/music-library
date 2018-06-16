@@ -16,6 +16,8 @@ function openPage(url) {
     }
     var encodeUrl = encodeURI(url + "&userLoggedIn=" + userLoggedIn);
     $(".mainContent").load(encodeUrl);
+    $("body").scrollTop(0);
+    history.pushState(null, null, url);
 }
 
 function formatTime(seconds) {
