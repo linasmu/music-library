@@ -1,24 +1,25 @@
 <div id="navBarContainer">
     <nav class="navBar">
-        <span class="logo" onclick="openPage('index.php')">
+        <span class="logo" role="link" tabindex="0" onclick="openPage('index.php')">
             <i class="fas fa-headphones"></i>
         </span>
         <div class="group">
             <div class="navItem">
-                <a href="search.php" class="navItemLink">Search
+                <span class='navItemLink' role='link' tabindex='0' onclick='openPage("search.php")'>
+                Search
                 <i class="fas fa-search" alt="Search"></i>
-                </a>
+                </span>
             </div>
         </div>
         <div class="group">
             <div class="navItem">
-                <a href="browse.php" class="navItemLink">Browse</a>
+            <span role="link" tabindex="0" onclick="openPage('browse.php')" class="navItemLink">Browse</span>
             </div>
             <div class="navItem">
-                <a href="yourmusic.php" class="navItemLink">Your music</a>
+            <span role="link" tabindex="0" onclick="openPage('yourMusic.php')" class="navItemLink">Your music</span>
             </div>
             <div class="navItem">
-                <a href="profile.php" class="navItemLink">Freddie Mercury</a>
+            <span role="link" tabindex="0" onclick="openPage('profile.php')" class="navItemLink">Freddie Mercury</span>
             </div>
         </div>
     </nav>
