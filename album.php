@@ -11,7 +11,7 @@ $artist = $album->getArtist();
 
 ?>
 
-<div class="albumInfo">
+<div class="infoSection">
     <div class="leftSection">
         <img src="<?= $album->getLable(); ?>" alt="">
     </div>

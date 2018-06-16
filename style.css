@@ -409,34 +409,34 @@ html, body {
     text-decoration: none;
 }
 
-.albumInfo {
+.infoSection {
     padding: 40px 0 10px 0;
     display: inline-block;
     width: 100%; 
 }
 
-.albumInfo .leftSection {
+.infoSection .leftSection {
     width: 30%;
     float: left;
     max-width: 250px;
 }
 
-.albumInfo .leftSection img {
+.infoSection .leftSection img {
     width: 100%;
 }
 
-.albumInfo .rightSection {
+.infoSection .rightSection {
     width: 70%;
     float: left;
     padding: 5px 10px 5px 40px;
     box-sizing: border-box;
 }
 
-.albumInfo .rightSection h2 {
+.infoSection .rightSection h2 {
     margin-top: 0;
 }
 
-.albumInfo .rightSection p {
+.infoSection .rightSection p {
     color: #939393;
     font-weight: 200;
 }
