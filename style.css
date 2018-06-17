@@ -546,5 +546,10 @@ html, body {
     margin-bottom: 20px;
 }
 
+.tracklistContainer h2,
+.gridViewContainer h2 {
+    text-align: center;
+}
+
 
 
