@@ -606,6 +606,7 @@ input:focus {
 }
 
 .fa-music {
-    font-size: 120px;
-    padding-left: 35px;
+    font-size: 170px;
+    padding: 10px;
+    border: 3px solid #282828;
 }
