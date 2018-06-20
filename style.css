@@ -604,3 +604,8 @@ input:focus {
 .playlistsContainer {
     padding: 10px 0;
 }
+
+.fa-music {
+    font-size: 120px;
+    padding-left: 35px;
+}

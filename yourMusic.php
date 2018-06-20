@@ -8,7 +8,7 @@ include("includes/includedFiles.php");
         <div class="buttonItems">
             <button class="button green" onclick="createPlaylist()">NEW PLAYLIST</button>
         </div>
-
+       
         <?php
             $username = $userLoggedIn->getUsername();
             $playlistQuery = mysqli_query($con, "SELECT * FROM playlist WHERE owner='$username'");
@@ -19,6 +19,8 @@ include("includes/includedFiles.php");
 
             while($row = mysqli_fetch_array($playlistQuery)) {
 
+                $playlist = new Playlist($con, $row);
+
                 echo "<div class='gridViewItem'>
 
                         <div playlistImage>
@@ -26,10 +28,11 @@ include("includes/includedFiles.php");
                         </div>
 
                         <div class='gridViewInfo'>
-                        ". $row['name'] ."
+                        ". $playlist->getName() ."
                         </div>
                     </div>";
             }
         ?>
     </div>
+
 </div>
