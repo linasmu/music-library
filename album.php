@@ -46,7 +46,7 @@ $artist = $album->getArtist();
                     </div>
 
                     <div class='trackOptions'>
-                        <i class='fas fa-ellipsis-v'></i>
+                        <i class='fas fa-ellipsis-v' onclick='showOptionsMenu(this)'></i>
                     </div>
 
                     <div class='trackDuration'>
