@@ -69,7 +69,7 @@ $artist = $album->getArtist();
 
 <div class="optionsMenu">
     <input type="hidden" class="songId">
-    <div class="item">Add to playlist</div>
+    <?= Playlist::getPlaylistDropdown($con, $userLoggedIn->getUsername()); ?>
     <div class="item">Item2</div>
     <div class="item">Item3</div>
 </div>
