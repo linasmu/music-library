@@ -66,3 +66,10 @@ $artist = $album->getArtist();
 
     </ul>
 </div>
+
+<div class="optionsMenu">
+    <input type="hidden" class="songId">
+    <div class="item">Add to playlist</div>
+    <div class="item">Item2</div>
+    <div class="item">Item3</div>
+</div>
