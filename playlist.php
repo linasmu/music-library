@@ -47,7 +47,8 @@ $owner = new User($con, $playlist->getOwner());
                     </div>
 
                     <div class='trackOptions'>
-                        <i class='fas fa-ellipsis-v'></i>
+                        <input type='hidden' class='songId' value='" . $playlistSong->getId() . "'>
+                        <i class='fas fa-ellipsis-v' onclick='showOptionsMenu(this)'></i>
                     </div>
 
                     <div class='trackDuration'>
@@ -67,3 +68,8 @@ $owner = new User($con, $playlist->getOwner());
 
     </ul>
 </div>
+
+<nav class="optionsMenu">
+    <input type="hidden" class="songId">
+    <?= Playlist::getPlaylistDropdown($con, $userLoggedIn->getUsername()); ?>
+</nav>

@@ -46,6 +46,7 @@ $artist = $album->getArtist();
                     </div>
 
                     <div class='trackOptions'>
+                        <input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
                         <i class='fas fa-ellipsis-v' onclick='showOptionsMenu(this)'></i>
                     </div>
 
@@ -60,16 +61,14 @@ $artist = $album->getArtist();
         ?>
 
         <script>
-            var tempSongIds = '<?php echo json_encode($songIdArray); ?>';
+            var tempSongIds = '<?= json_encode($songIdArray); ?>';
             tempPlaylist = JSON.parse(tempSongIds);
         </script>
 
     </ul>
 </div>
 
-<div class="optionsMenu">
+<nav class="optionsMenu">
     <input type="hidden" class="songId">
     <?= Playlist::getPlaylistDropdown($con, $userLoggedIn->getUsername()); ?>
-    <div class="item">Item2</div>
-    <div class="item">Item3</div>
-</div>
+</nav>

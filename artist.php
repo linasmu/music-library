@@ -50,7 +50,8 @@ $artist = new Artist($con, $artistId);
                     </div>
 
                     <div class='trackOptions'>
-                        <i class='fas fa-ellipsis-v'></i>
+                        <input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
+                        <i class='fas fa-ellipsis-v' onclick='showOptionsMenu(this)'></i>
                     </div>
 
                     <div class='trackDuration'>
@@ -89,3 +90,8 @@ $artist = new Artist($con, $artistId);
         }
     ?>
 </div>
+
+<nav class="optionsMenu">
+    <input type="hidden" class="songId">
+    <?= Playlist::getPlaylistDropdown($con, $userLoggedIn->getUsername()); ?>
+</nav>
